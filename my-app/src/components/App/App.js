@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
-import publications from '../../publications.json';
-import Reader from '../Reader/Reader';
+import Dashboard from '../Dashboard/Dashboard';
 
 const App = () => (
   <div className="App">
-    <Reader items={publications} />
+    <Dashboard />
   </div>
 );
 
