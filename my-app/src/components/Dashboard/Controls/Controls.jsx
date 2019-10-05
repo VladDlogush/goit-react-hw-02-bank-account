@@ -8,12 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 toast.configure();
 
 class Controls extends Component {
-  constructor() {
-    super();
-    this.state = {
-      input: '',
-    };
-  }
+  state = {
+    input: '',
+  };
 
   handleChange = e => {
     this.setState({

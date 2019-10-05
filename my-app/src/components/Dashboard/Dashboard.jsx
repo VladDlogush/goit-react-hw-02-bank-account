@@ -5,14 +5,10 @@ import Balance from './Balance/Balance';
 import TransactionHistory from './TransactionHistory/TransactionHistory';
 
 class Dashboard extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      transactions: [],
-      balance: 0,
-    };
-  }
+  state = {
+    transactions: [],
+    balance: 0,
+  };
 
   handleTransaction = transaction => {
     this.setState(prevState => {
