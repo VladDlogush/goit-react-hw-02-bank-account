@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styles from './Dashboard.module.css';
 import Controls from './Controls/Controls';
 import Balance from './Balance/Balance';
 import TransactionHistory from './TransactionHistory/TransactionHistory';
@@ -25,7 +24,7 @@ class Dashboard extends Component {
   render() {
     const { transactions, balance } = this.state;
     return (
-      <div className={styles.dashboard}>
+      <div>
         <Controls
           handleTransaction={this.handleTransaction}
           balance={balance}
