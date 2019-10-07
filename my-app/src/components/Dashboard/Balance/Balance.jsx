@@ -2,17 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Balance.module.css';
 
-const Balance = ({ transactions, balance }) => {
-  const handleTotalAmount = type => {
-    const amount = transactions
-      .filter(transaction => transaction.type === type)
-      .reduce((acc, transaction) => {
-        return Number(transaction.amount) + Number(acc);
-      }, 0);
-
-    return amount;
-  };
-
+const Balance = ({ handleTotalAmount, balance }) => {
   return (
     <section className={styles.balance}>
       <span role="img" aria-label="deposit" className={styles.balance__text}>
@@ -27,14 +17,7 @@ const Balance = ({ transactions, balance }) => {
 };
 
 Balance.propTypes = {
-  transactions: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      amount: PropTypes.number.isRequired,
-      date: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
+  handleTotalAmount: PropTypes.func.isRequired,
   balance: PropTypes.number.isRequired,
 };
 

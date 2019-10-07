@@ -21,6 +21,17 @@ class Dashboard extends Component {
     });
   };
 
+  handleTotalAmount = type => {
+    const { transactions } = this.state;
+    const amount = transactions
+      .filter(transaction => transaction.type === type)
+      .reduce((acc, transaction) => {
+        return Number(transaction.amount) + Number(acc);
+      }, 0);
+
+    return amount;
+  };
+
   render() {
     const { transactions, balance } = this.state;
     return (
@@ -29,7 +40,7 @@ class Dashboard extends Component {
           handleTransaction={this.handleTransaction}
           balance={balance}
         />
-        <Balance transactions={transactions} balance={balance} />
+        <Balance handleTotalAmount={this.handleTotalAmount} balance={balance} />
         <TransactionHistory transactions={transactions} />
       </div>
     );
